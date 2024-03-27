@@ -13,15 +13,14 @@ driver = webdriver.Chrome()
 # Abre Google y realiza una búsqueda de "Coches en Londres"
 driver.get("https://www.google.com")
 search_box = driver.find_element(By.NAME, "q")
-search_box.send_keys("Coches en Londres")
+search_box.send_keys("Cars at London") # Si se pasa como parametro Cars at London gumtree Veras los resultados.
 search_box.submit()
 
 # Esperar a que se carguen los resultados de la búsqueda
-time.sleep(3)
+time.sleep(2)
 
 # Obtener todos los enlaces de los resultados de la búsqueda
 gumtree_links = driver.find_elements(By.CSS_SELECTOR, "a[href*='gumtree.com']")
-#gumtree_links = driver.find_elements(By.CSS_SELECTOR, "div.rc > div.r > a")
 
 # Mostrar todos los resultados de búsqueda y contar los enlaces de Gumtree
 num_links = len(gumtree_links)
